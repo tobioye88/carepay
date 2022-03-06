@@ -67,9 +67,17 @@ public class PostController {
     }
 
     @GetMapping("{postId}/comments/{commentId}")
-    CommentDetails getPostComments(
+    CommentDetails getPostComment(
             @PathVariable("commentId") final Long commentId
     ) {
         return commentService.getCommentDetails(commentId);
+    }
+
+    @DeleteMapping("{postId}/comments/{commentId}")
+    @ResponseStatus(HttpStatus.OK)
+    void deletePostComment(
+            @PathVariable("commentId") final Long commentId
+    ) {
+        commentService.deleteComment(commentId);
     }
 }
