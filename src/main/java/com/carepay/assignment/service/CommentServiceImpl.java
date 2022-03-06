@@ -2,9 +2,16 @@ package com.carepay.assignment.service;
 
 import com.carepay.assignment.domain.CommentDetails;
 import com.carepay.assignment.domain.CreateCommentRequest;
+import com.carepay.assignment.domain.Post;
+import com.carepay.assignment.domain.entities.Comment;
+import com.carepay.assignment.repository.CommentRepository;
+import com.carepay.assignment.repository.PostRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 
 /**
  * @author tobioye 06/03/2022
@@ -12,9 +19,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommentServiceImpl implements CommentService {
 
+    private CommentRepository commentRepository;
+    private PostRepository postRepository;
+
+    public CommentServiceImpl(CommentRepository commentRepository, PostRepository postRepository) {
+        this.commentRepository = commentRepository;
+        this.postRepository = postRepository;
+    }
+
     @Override
-    public CommentDetails createComment(Long id, CreateCommentRequest createCommentRequest) {
-        return null;
+    public CommentDetails createComment(Long postId, CreateCommentRequest createCommentRequest) {
+        Optional<Post> optionalPost = postRepository.findById(postId);
+        if(!optionalPost.isPresent()){
+            throw new EntityNotFoundException(String.format("Post with id: %d not found", postId));
+        }
+        Post post = optionalPost.get();
+        Comment comment = commentRepository.save(new Comment(null, post, createCommentRequest.getComment()));
+        return new CommentDetails(comment.getId(), postId, comment.getComment());
     }
 
     @Override

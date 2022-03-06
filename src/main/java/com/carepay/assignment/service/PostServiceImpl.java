@@ -51,8 +51,4 @@ public class PostServiceImpl implements PostService {
         getPostDetails(id);
         postRepository.deleteById(id);
     }
-
-    public CommentDetails addCommentToPost(Long postId, CreateCommentRequest request) {
-        return new CommentDetails();
-    }
 }

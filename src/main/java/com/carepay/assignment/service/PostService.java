@@ -14,6 +14,4 @@ public interface PostService {
     PostDetails getPostDetails(Long id);
 
     void deletePost(Long id);
-
-    CommentDetails addCommentToPost(Long postId, CreateCommentRequest request);
 }

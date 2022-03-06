@@ -3,6 +3,7 @@ package com.carepay.assignment.web;
 import javax.validation.Valid;
 
 import com.carepay.assignment.domain.*;
+import com.carepay.assignment.service.CommentService;
 import com.carepay.assignment.service.PostService;
 import com.carepay.assignment.service.PostServiceImpl;
 import org.springframework.data.domain.Page;
@@ -22,9 +23,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/posts", produces = MediaType.APPLICATION_JSON_VALUE)
 public class PostController {
     private final PostService postService;
+    private final CommentService commentService;
 
-    public PostController(PostServiceImpl postService) {
+    public PostController(
+            PostServiceImpl postService,
+            CommentService commentService
+    ) {
         this.postService = postService;
+        this.commentService = commentService;
     }
 
     @GetMapping
@@ -49,9 +55,9 @@ public class PostController {
         postService.deletePost(id);
     }
 
-//    @PostMapping("{postId}/comments")
-//    @ResponseStatus(HttpStatus.OK)
-//    CommentDetails deletePost(@PathVariable("postId") final Long postId, CreateCommentRequest request) {
-//        return postService.addCommentToPost(postId, request);
-//    }
+    @PostMapping("{postId}/comments")
+    @ResponseStatus(HttpStatus.CREATED)
+    CommentDetails deletePost(@PathVariable("postId") final Long postId, @Valid @RequestBody CreateCommentRequest request) {
+        return commentService.createComment(postId, request);
+    }
 }
