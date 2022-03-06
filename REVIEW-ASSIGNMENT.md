@@ -1,6 +1,6 @@
 Please provide review-comments for the code below:
 
-```
+```java
 @Component
 public class MyAction {
     public boolean debug = true;
@@ -58,3 +58,11 @@ public class MyAction {
     }
 }
 ```
+
+
+### Comments
+1. String builder or String buffer should have been used.
+2. A prepared statement should help avoid SQL injection.
+3. A Repository and entity could be used in stead.
+4. Object[] objects = new Object[] should be replaced with array of strings 
+5. while(true) should be avoided
