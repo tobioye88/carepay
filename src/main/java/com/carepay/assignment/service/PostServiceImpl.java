@@ -1,5 +1,6 @@
 package com.carepay.assignment.service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
 import com.carepay.assignment.domain.CreatePostRequest;
@@ -10,6 +11,8 @@ import com.carepay.assignment.repository.PostRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -38,7 +41,12 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDetails getPostDetails(Long id) {
-        throw new IllegalArgumentException("Not implemented"); // TODO: Implement
+        Optional<Post> optionalPost = postRepository.findById(id);
+        if(!optionalPost.isPresent()){
+            throw new EntityNotFoundException(String.format("Post with id: %d not found", id));
+        }
+        Post post = optionalPost.get();
+        return new PostDetails(post.getId(), post.getTitle(), post.getContent());
     }
 
     @Override
