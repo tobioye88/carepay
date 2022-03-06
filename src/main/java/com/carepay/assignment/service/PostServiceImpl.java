@@ -51,6 +51,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void deletePost(Long id) {
-        throw new IllegalArgumentException("Not implemented"); // TODO: Implement
+        getPostDetails(id);
+        postRepository.deleteById(id);
     }
 }
