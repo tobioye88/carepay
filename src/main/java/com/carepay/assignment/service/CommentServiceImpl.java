@@ -45,8 +45,13 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public CommentDetails getCommentDetails(Long id) {
-        return null;
+    public CommentDetails getCommentDetails(Long commentId) {
+        Optional<Comment> optionalComment = commentRepository.findById(commentId);
+        if(!optionalComment.isPresent()) {
+            throw new EntityNotFoundException("Comment not found");
+        }
+        Comment comment = optionalComment.get();
+        return new CommentDetails(comment.getId(), comment.getPost().getId(), comment.getComment());
     }
 
     @Override
