@@ -1,6 +1,6 @@
 package com.carepay.assignment.repository;
 
-import com.carepay.assignment.domain.Post;
+import com.carepay.assignment.domain.entities.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

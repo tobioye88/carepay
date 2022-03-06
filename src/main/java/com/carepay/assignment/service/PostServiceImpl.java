@@ -3,7 +3,10 @@ package com.carepay.assignment.service;
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
-import com.carepay.assignment.domain.*;
+import com.carepay.assignment.domain.dtos.CreatePostRequest;
+import com.carepay.assignment.domain.dtos.PostDetails;
+import com.carepay.assignment.domain.dtos.PostInfo;
+import com.carepay.assignment.domain.entities.Post;
 import com.carepay.assignment.repository.PostRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

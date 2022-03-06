@@ -1,8 +1,8 @@
 package com.carepay.assignment.service;
 
-import com.carepay.assignment.domain.CommentDetails;
-import com.carepay.assignment.domain.CreateCommentRequest;
-import com.carepay.assignment.domain.Post;
+import com.carepay.assignment.domain.dtos.CommentDetails;
+import com.carepay.assignment.domain.dtos.CreateCommentRequest;
+import com.carepay.assignment.domain.entities.Post;
 import com.carepay.assignment.domain.entities.Comment;
 import com.carepay.assignment.repository.CommentRepository;
 import com.carepay.assignment.repository.PostRepository;

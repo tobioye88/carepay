@@ -2,7 +2,7 @@ package com.carepay.assignment.web;
 
 import javax.validation.Valid;
 
-import com.carepay.assignment.domain.*;
+import com.carepay.assignment.domain.dtos.*;
 import com.carepay.assignment.service.CommentService;
 import com.carepay.assignment.service.PostService;
 import com.carepay.assignment.service.PostServiceImpl;
@@ -60,4 +60,6 @@ public class PostController {
     CommentDetails deletePost(@PathVariable("postId") final Long postId, @Valid @RequestBody CreateCommentRequest request) {
         return commentService.createComment(postId, request);
     }
+
+
 }

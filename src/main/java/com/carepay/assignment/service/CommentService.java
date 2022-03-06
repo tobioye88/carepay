@@ -1,6 +1,7 @@
 package com.carepay.assignment.service;
 
-import com.carepay.assignment.domain.*;
+import com.carepay.assignment.domain.dtos.CommentDetails;
+import com.carepay.assignment.domain.dtos.CreateCommentRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

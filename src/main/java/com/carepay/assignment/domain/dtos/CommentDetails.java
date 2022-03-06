@@ -1,4 +1,4 @@
-package com.carepay.assignment.domain;
+package com.carepay.assignment.domain.dtos;
 
 /**
  * @author tobioye 06/03/2022

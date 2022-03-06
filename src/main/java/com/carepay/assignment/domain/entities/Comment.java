@@ -1,6 +1,5 @@
 package com.carepay.assignment.domain.entities;
 
-import com.carepay.assignment.domain.Post;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;

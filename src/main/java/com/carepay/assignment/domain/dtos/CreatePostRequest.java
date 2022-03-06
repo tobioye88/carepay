@@ -1,25 +1,22 @@
-package com.carepay.assignment.domain;
+package com.carepay.assignment.domain.dtos;
 
-public class PostDetails extends PostInfo {
-    private Long id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+public class CreatePostRequest {
+    @NotNull
+    @Size(max = 128)
     private String title;
+    @NotNull
+    @Size(max = 128)
     private String content;
 
-    public PostDetails() {
+    public CreatePostRequest() {
     }
 
-    public PostDetails(Long id, String title, String content) {
-        this.id = id;
+    public CreatePostRequest(String title, String content) {
         this.title = title;
         this.content = content;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getTitle() {

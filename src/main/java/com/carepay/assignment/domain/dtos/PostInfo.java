@@ -1,4 +1,4 @@
-package com.carepay.assignment.domain;
+package com.carepay.assignment.domain.dtos;
 
 public class PostInfo {
     private Long id;

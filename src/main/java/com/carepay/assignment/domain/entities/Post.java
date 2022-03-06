@@ -1,4 +1,4 @@
-package com.carepay.assignment.domain;
+package com.carepay.assignment.domain.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
