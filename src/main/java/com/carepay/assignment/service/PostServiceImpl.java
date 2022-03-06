@@ -32,7 +32,8 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Page<PostInfo> getPosts(Pageable pageable) {
-        throw new IllegalArgumentException("Not implemented"); // TODO: Implement
+        Page<Post> all = postRepository.findAll(pageable);
+        return all.map(el -> new PostInfo(el.getId(), el.getTitle()));
     }
 
     @Override
