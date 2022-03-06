@@ -2,9 +2,7 @@ package com.carepay.assignment.web;
 
 import javax.validation.Valid;
 
-import com.carepay.assignment.domain.CreatePostRequest;
-import com.carepay.assignment.domain.PostDetails;
-import com.carepay.assignment.domain.PostInfo;
+import com.carepay.assignment.domain.*;
 import com.carepay.assignment.service.PostService;
 import com.carepay.assignment.service.PostServiceImpl;
 import org.springframework.data.domain.Page;
@@ -50,4 +48,10 @@ public class PostController {
     void deletePost(@PathVariable("id") final Long id) {
         postService.deletePost(id);
     }
+
+//    @PostMapping("{postId}/comments")
+//    @ResponseStatus(HttpStatus.OK)
+//    CommentDetails deletePost(@PathVariable("postId") final Long postId, CreateCommentRequest request) {
+//        return postService.addCommentToPost(postId, request);
+//    }
 }

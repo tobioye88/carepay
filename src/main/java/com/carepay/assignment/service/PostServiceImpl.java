@@ -3,10 +3,7 @@ package com.carepay.assignment.service;
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
-import com.carepay.assignment.domain.CreatePostRequest;
-import com.carepay.assignment.domain.Post;
-import com.carepay.assignment.domain.PostDetails;
-import com.carepay.assignment.domain.PostInfo;
+import com.carepay.assignment.domain.*;
 import com.carepay.assignment.repository.PostRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -53,5 +50,9 @@ public class PostServiceImpl implements PostService {
     public void deletePost(Long id) {
         getPostDetails(id);
         postRepository.deleteById(id);
+    }
+
+    public CommentDetails addCommentToPost(Long postId, CreateCommentRequest request) {
+        return new CommentDetails();
     }
 }
