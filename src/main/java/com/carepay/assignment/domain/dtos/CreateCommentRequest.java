@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
  */
 public class CreateCommentRequest {
     @NotNull
-    @Size(max = 160)
+    @Size(max = 128)
     private String comment;
 
     public CreateCommentRequest() {
