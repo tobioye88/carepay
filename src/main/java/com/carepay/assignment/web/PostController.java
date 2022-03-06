@@ -61,5 +61,9 @@ public class PostController {
         return commentService.createComment(postId, request);
     }
 
+    @GetMapping("{postId}/comments")
+    Page<CommentDetails> getPostComments(@PathVariable("postId") final Long postId, Pageable pageable) {
+        return commentService.getComments(postId, pageable);
+    }
 
 }

@@ -39,12 +39,13 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Page<CommentDetails> getComments(Pageable pageable) {
-        return null;
+    public Page<CommentDetails> getComments(Long postId, Pageable pageable) {
+        Page<Comment> all = commentRepository.findByPostId(postId, pageable);
+        return all.map(it -> new CommentDetails(it.getId(), it.getPost().getId(), it.getComment()));
     }
 
     @Override
-    public CommentDetails getPostDetails(Long id) {
+    public CommentDetails getCommentDetails(Long id) {
         return null;
     }
 

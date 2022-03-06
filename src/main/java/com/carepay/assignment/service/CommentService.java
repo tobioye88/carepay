@@ -11,11 +11,11 @@ import javax.validation.Valid;
  * @author tobioye 06/03/2022
  */
 public interface CommentService {
-    CommentDetails createComment(Long id, @Valid CreateCommentRequest createCommentRequest);
+    CommentDetails createComment(Long postId, @Valid CreateCommentRequest createCommentRequest);
 
-    Page<CommentDetails> getComments(final Pageable pageable);
+    Page<CommentDetails> getComments(Long postId, final Pageable pageable);
 
-    CommentDetails getPostDetails(Long id);
+    CommentDetails getCommentDetails(Long commentId);
 
-    void deleteComment(Long id);
+    void deleteComment(Long commentId);
 }
